@@ -1,4 +1,4 @@
-class Finder:
+class Finder():
     def __init__(self, database):
         self.database = database
         self.radius_list = [2, 4, 6, 8, 10]
@@ -11,7 +11,7 @@ class Finder:
 
 
     def find_near(self, geopoint, radio_max_meters = 1):
-        return self.database.germany_after_geoindex.find({
+        return self.database.germany_offices.find({
             "geo": {
                 "$near": {
                     "$geometry": geopoint,
@@ -56,10 +56,18 @@ class Finder:
             return 10
         else:
             return 0
+        
+    
+    def get_category_code(self, code):
+        if category_code == ('games_video') or ('web'):
+            return 10
+        else:
+            return 0
 
 
     def get_score(self, company, radius):
-        return self.get_radius_points(radius) + self.get_founded_year_points(company['founded_year']) + self.get_money_points(company['total_money_raised'])+self.get_employees_points(company['number_of_employees'])
+        return self.get_radius_points(radius) + self.get_founded_year_points(germany_offices['founded_year']) + self.get_money_points(germany_offices['total_money_raised'])+self.get_employees_points(germany_offices['number_of_employees'])+self.get_category_code(germany_offices['category_code'])
+
 
 
 localizer = Finder(db)
