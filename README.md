@@ -1,5 +1,7 @@
 # visualizing-real-world-data-project
 
+https://github.com/emachadoc/visualizing-real-world-data-project
+
 El objetivo de mi empresa es abrir una sucursal en Alemania, por lo que en 'Clean_companies.ipynb' filtro la base de datos para quedarme exclusivamente con los registros con oficinas en ese país.
 
 Creo un DataFrame seleccionando las columnas que me interesan y descartando las demás y extraigo los datos de ciudad, latitud, longitud y geo para cada oficina de las ubicadas en Alemania y que tengan latitud y longitud. Creo un nuevo DataFrame agregando los datos extraídos y filtro para eliminar los registros nulos de latitud y longitud, ordeno por año de fundación y exporto a .json.
